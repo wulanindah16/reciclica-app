@@ -1,18 +1,43 @@
+// import { Component } from '@angular/core';
+// @Component({
+//   selector: 'app-root',
+//   templateUrl: 'app.component.html',
+//   styleUrls: ['app.component.scss'],
+// })
+// export class AppComponent {
+//   public appPages = [];
+//   constructor() {}
+// }
+
 import { Component } from '@angular/core';
+
+// Tambahkan definisi interface di sini
+interface AppPage {
+  url: string;
+  icon: string;
+  title: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  public appPages = [
-    { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+  // Menetapkan tipe data appPages sebagai array dari objek AppPage
+  public appPages: AppPage[] = [
+    {
+      title: 'Home',     // Properti 'title' dengan nilai 'Home'
+      url: '/home',      // Properti 'url' dengan nilai '/home'
+      icon: 'home',      // Properti 'icon' dengan nilai 'home'
+    },
+    {
+      title: 'Settings', // Properti 'title' dengan nilai 'Settings'
+      url: '/settings',  // Properti 'url' dengan nilai '/settings'
+      icon: 'settings',  // Properti 'icon' dengan nilai 'settings'
+    },
+    // Anda dapat menambahkan lebih banyak halaman sesuai kebutuhan
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+
   constructor() {}
 }
