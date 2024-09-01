@@ -1,14 +1,3 @@
-// import { Component } from '@angular/core';
-// @Component({
-//   selector: 'app-root',
-//   templateUrl: 'app.component.html',
-//   styleUrls: ['app.component.scss'],
-// })
-// export class AppComponent {
-//   public appPages = [];
-//   constructor() {}
-// }
-
 import { Component } from '@angular/core';
 
 // Tambahkan definisi interface di sini
@@ -36,7 +25,7 @@ export class AppComponent {
       url: '/settings',  // Properti 'url' dengan nilai '/settings'
       icon: 'settings',  // Properti 'icon' dengan nilai 'settings'
     },
-    // Anda dapat menambahkan lebih banyak halaman sesuai kebutuhan
+    
   ];
 
   constructor() {}

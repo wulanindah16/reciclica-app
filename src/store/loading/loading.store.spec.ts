@@ -1,8 +1,8 @@
-import { Action } from '@ngrx/store'; // Perbaiki impor Action
+import { Action } from '@ngrx/store';
 import { hide, show } from "./loading.actions";
 import { loadingReducer } from "./loading.reducers";
 import { LoadingState } from "./LoadingState";
-import { createAction } from '@ngrx/store'; // Tambahkan impor createAction dari '@ngrx/store'
+import { createAction } from '@ngrx/store';
 
 describe('Loading store', () => {
 

@@ -6,7 +6,7 @@ import { PickupCallCardComponent } from 'src/app/components/pickup-call-card/pic
 
 @NgModule({
   declarations: [
-    PickupCallCardComponent // Deklarasikan komponen di sini
+    PickupCallCardComponent // Deklarasikan komponen
   ],
   imports: [
     CommonModule,

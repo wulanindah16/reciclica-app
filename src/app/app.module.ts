@@ -7,9 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppStoreModule } from 'src/store/AppStoreModule';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { LoadingComponent } from './components/loading/loading.component';
-import { environment } from '../environments/environment'; // Import environment
+import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
-// import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
 
 @NgModule({
   declarations: [
@@ -23,8 +23,6 @@ import { AngularFireModule } from '@angular/fire/compat';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     ...AppStoreModule,
     StoreDevtoolsModule.instrument({ maxAge: 25 })
-    // AngularFireAuthModule,
-    // !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 25 }) : []
   ],
   providers: [{
     provide: RouteReuseStrategy,
