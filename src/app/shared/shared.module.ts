@@ -2,18 +2,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { PickupCallCardComponent } from 'src/app/components/pickup-call-card/pickup-call-card.component';
+import { PickupCallCardComponent } from '../components/pickup-call-card/pickup-call-card.component';
+import { ErrorMessageComponent } from '../components/error-message/error-message.component';
 
 @NgModule({
   declarations: [
-    PickupCallCardComponent // Deklarasikan komponen
+    PickupCallCardComponent,
+    ErrorMessageComponent
   ],
   imports: [
     CommonModule,
     IonicModule
   ],
   exports: [
-    PickupCallCardComponent, // Ekspor komponen agar bisa digunakan di modul lain
+    PickupCallCardComponent,
+    ErrorMessageComponent,
     CommonModule,
     IonicModule
   ]
