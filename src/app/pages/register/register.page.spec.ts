@@ -10,6 +10,9 @@ import { Store, StoreModule } from "@ngrx/store";
 import { loadingReducer } from 'src/store/loading/loading.reducers';
 import { UserRegister } from 'src/app/model/UserRegister';
 import { register, registerFail, registerSuccess } from 'src/store/register/register.actions';
+import { state } from '@angular/animations';
+import { registerReducer } from 'src/store/register/register.reducers';
+import { loginReducer } from 'src/store/login/login.reducers';
 
 describe('RegisterPage', () => {
   let component: RegisterPage;
@@ -29,7 +32,8 @@ describe('RegisterPage', () => {
         RegisterPageModule,
         StoreModule.forRoot([]),
         StoreModule.forFeature("loading", loadingReducer),
-        StoreModule.forFeature("register", loadingReducer),
+        StoreModule.forFeature("login", loginReducer),
+        StoreModule.forFeature("register", registerReducer),
       ]
     }).compileComponents();
 
@@ -78,6 +82,7 @@ describe('RegisterPage', () => {
 
   it('should hide loading component when registration successful', () => {
     fixture.detectChanges();
+
     store.dispatch(register({ userRegister: new UserRegister() }));
     store.dispatch(registerSuccess());
 
@@ -86,16 +91,20 @@ describe('RegisterPage', () => {
     });
   });
 
-  it('should go to home page when registration successful', () => {
+  it('should login when registration successful', () => {
     fixture.detectChanges();
+
     store.dispatch(register({ userRegister: new UserRegister() }));
     store.dispatch(registerSuccess());
 
-    expect(router.navigate).toHaveBeenCalledWith(['home']);
+    store.select('login').subscribe(state => {
+      expect(state.isLoggingIn).toBeTruthy();
+    })
   });
 
   it('should hide loading component when registration fails', () => {
     fixture.detectChanges();
+
     store.dispatch(register({ userRegister: new UserRegister() }));
     store.dispatch(registerFail({ error: { message: 'any message' } }));
 
@@ -106,6 +115,7 @@ describe('RegisterPage', () => {
 
   it('should show error when registration fails', () => {
     fixture.detectChanges();
+
     spyOn(toastController, 'create').and.returnValue(<any> Promise.resolve({present: () => {}}));
 
     store.dispatch(register({ userRegister: new UserRegister() }));
