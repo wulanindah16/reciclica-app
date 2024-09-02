@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/model/user/User';
+import { UserRegister } from 'src/app/model/UserRegister';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,19 @@ import { User } from 'src/app/model/user/User';
 export class AuthService {
 
   constructor(private auth: AngularFireAuth, private router: Router) { }
+
+  register(userRegister:UserRegister): Observable<void>{
+    return new Observable<void>(observer => {
+      setTimeout(() => {
+        if (userRegister.email == "error@email.com") {
+          observer.error({message: "email already registered"});
+        } else {
+          observer.next();
+        }
+        observer.complete();
+      }, 3000)
+      })
+  }
 
   recoverEmailPassword(email: string): Observable<void> {
     return new Observable<void>(observer => {
