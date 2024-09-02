@@ -1,6 +1,9 @@
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from "@angular/forms";
 
 export class RegisterPageForm {
+  get(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
 
   private formBuilder: FormBuilder;
   private form: FormGroup;
